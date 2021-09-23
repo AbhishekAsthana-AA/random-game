@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guessing Game</title>
+	<style>
+		body
+		{
+			background:linear-gradient(red,blue);
+			background-repeat: no-repeat;
+			font-style: italic;
+			font-weight: bolder;
+			font-size: 50px;
+			height: 600px;
+		}
+		.continer
+		{
+			margin: auto;
+			text-align: center;
+
+		}
+		input[type = text]
+		{
+		   width: 30%;
+		   border-radius: 30px;
+		   box-sizing: border-box;
+		   padding: 12px 20px;
+
+		}
+		#submit
+		{
+			width: 10%;
+
+			padding: 5px 7px;
+			font-size: 20px;
+		}
+		#output
+		{
+			color: #66ffff;
+		}
+	</style>
+</head>
+<body>
+	<div class="continer">
+		<p> Welcome </p>
+		<p> Enter a Number below between 0 to100</p>
+		<input type="text" name="enum" id="userinput">
+		
+		<button id="submit" style="background-color: red">Click me</button>
+		<p id="output"> </p>
+	</div>
+
+	<script>
+
+	
+			var number = [Math.floor(Math.random() * 100) + 1];
+
+		    document.getElementById("submit").onclick = function(){
+
+			var uip = document.getElementById("userinput").value;
+			var count = 1;
+
+			validateguess(uip);
+		}
+
+		function validateguess(uip){
+			if (isNaN(uip)){
+				alert("enter a no.");
+			}
+			else if(uip <1){
+				alert("enter a valid no.");
+			}
+			else if(uip>100)
+			{
+				alert("enter a valid no. below 100");
+			}
+			display(uip);
+		}
+
+		function display(uip){
+			if(uip == number)
+			{
+				document.getElementById("output").innerHTML = "you Guess right!!! bravo";
+				
+			}
+			else if (uip < number) {
+				document.getElementById("output").innerHTML = "your guess is two low";
+				
+			}
+			else if (uip >  number) {
+				document.getElementById("output").innerHTML = 'Guuess is high'
+				
+			}
+		}
+		
+
+	</script>
+</body>
+</html>
